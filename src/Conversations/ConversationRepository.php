@@ -120,6 +120,54 @@ class ConversationRepository extends Repository
     }
     
     /*
+     * retrieve all message thread without soft deleted message with latest one message and
+     * sender and receiver user model
+     *
+     * @param   int $user
+     * @param   int $offset
+     * @param   int $take
+     * @return  collection
+     * */
+    public function threads($user, $order, $offset, $take)
+    {
+        $conv = new Conversation();
+        $conv->authUser = $user;
+        $msgThread = $conv->with(['messages' => function ($q) use ($user) {
+            return $q->where(function ($q) use ($user) {
+                $q->where('user_id', $user)
+                    ->where('deleted_from_sender', 0);
+            })
+                ->orWhere(function ($q) use ($user) {
+                    $q->where('user_id', '!=', $user);
+                    $q->where('deleted_from_receiver', 0);
+                })
+                ->latest();
+        }, 'messages.sender.image','userone', 'userone.image', 'usertwo', 'usertwo.image', 'car', 'car.image'])
+            ->where('user_one', $user)
+            ->orWhere('user_two', $user)
+            ->offset($offset)
+            ->take($take)
+            ->orderBy('updated_at', $order)
+            ->get();
+        
+        $threads = [];
+        if (count($msgThread) > 0){
+            foreach ($msgThread as $thread) {
+                $collection = (object) null;
+                $conversationWith = ($thread->userone->id == $user) ? $thread->usertwo : $thread->userone;
+                $collection->thread = $thread->messages->first();
+                $collection->withUser = $conversationWith;
+                /*$collection->conversations = $thread;*/
+                $collection->car = ($thread->car) ? $thread->car : '';
+                $threads[] = $collection;
+            }
+        }
+        
+        
+        return collect($threads);
+    }
+    
+    /*
  * retrieve all message thread with latest one message and sender and receiver user model
  *
  * @param   int $user
