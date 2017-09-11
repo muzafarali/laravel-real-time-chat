@@ -1,0 +1,50 @@
+{
+    "name": "laravelvue/talk",
+    "description": "Laravel chat is a Laravel 5+ based realtime messaging, chatting and conversation system. It helps to develop users messaging, chatting and conversations in easy way.",
+    "keywords": ["message", "inbox", "conversations", "chat", "php", "laravel", "realtime", "real-time"],
+    "homepage": "https://github.com/muzafarali/laravel-real-time-chat",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Muzafar Ali",
+          "email": "muzafar.ibrahim@gmail.com"
+        }
+    ],
+  "require": {
+    "php": ">=5.5.9",
+    "illuminate/contracts": "5.0.* || 5.1.* || 5.2.* || 5.3.* || 5.4.*",
+    "illuminate/support": "5.0.* || 5.1.* || 5.2.* || 5.3.* || 5.4.*",
+    "sebastian-berc/repositories": "^1.0",
+    "nesbot/carbon": "^1.21",
+    "pusher/pusher-php-server": "^2.6"
+  },
+  "require-dev": {
+    "graham-campbell/testbench": "^3.1",
+    "phpunit/phpunit": "^4.8 || ^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "LaravelVue\\Talk\\": "src/"
+    },
+    "files": [
+      "src/helpers/talk.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LaravelVue\\Talk\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LaravelVue\\Talk\\\\TalkServiceProvider"
+      ],
+      "aliases": {
+        "Talk": "LaravelVue\\Talk\\Facades\\Talk"
+      }
+    }
+  }
+}
