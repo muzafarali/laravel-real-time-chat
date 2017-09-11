@@ -1,9 +1,9 @@
 <?php
 
-namespace Nahid\Talk\Tests;
+namespace laravelvue\Talk\Tests;
 
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
-use Nahid\Talk\TalkServiceProvider;
+use laravelvue\Talk\TalkServiceProvider;
 
 /**
  * This is the abstract test case class.

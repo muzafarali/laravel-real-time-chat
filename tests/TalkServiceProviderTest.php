@@ -1,9 +1,9 @@
 <?php
 
-namespace Nahid\Talk\Tests;
+namespace laravelvue\Talk\Tests;
 
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
-use Nahid\Talk\Talk;
+use laravelvue\Talk\Talk;
 
 /**
  * This is the service provider test class.

@@ -52,10 +52,13 @@ class Talk
      * @var int
      */
     protected $authUserId;
-
+    
+    
     /**
-     * Initialize and instantiate conversation and message repositories.
+     * Talk constructor. Initialize and instantiate conversation and message repositories.
      *
+     * @param \Illuminate\Contracts\Config\Repository               $config
+     * @param \LaravelVue\Talk\Live\Broadcast                       $broadcast
      * @param \LaravelVue\Talk\Conversations\ConversationRepository $conversation
      * @param \LaravelVue\Talk\Messages\MessageRepository           $message
      */
@@ -239,7 +242,7 @@ class Talk
     /**
      * send a message by using converstionid.
      *
-     * @param int    $conversationId
+     * @param int    $conversatonId
      * @param string $message
      * @param string $message_html
      * @param string $message_type
@@ -373,6 +376,7 @@ class Talk
      * create a new message by using sender id.
      *
      * @param int $senderId
+     * @param int $car_id
      * @param int $offset   = 0
      * @param int $take     = 20
      *
@@ -380,7 +384,7 @@ class Talk
      */
     public function getConversationsByUserId($senderId, $car_id, $offset = 0, $take = 20)
     {
-        $conversationId = $this->isConversationExists($senderId, $this->authUserId);
+        $conversationId = $this->isConversationExists($senderId, $car_id);
         if ($conversationId) {
             return $this->getConversationsById($conversationId, $offset, $take);
         }
@@ -411,6 +415,8 @@ class Talk
      * its an alias of getConversationById.
      *
      * @param int $conversationId
+     * @param int $offset
+     * @param int $take
      *
      * @return \LaravelVue\Talk\Messages\Message|bool
      */
@@ -423,6 +429,8 @@ class Talk
      * its an alias of getConversationAllById.
      *
      * @param int $conversationId
+     * @param int $offset
+     * @param int $take
      *
      * @return \LaravelVue\Talk\Messages\Message|bool
      */
@@ -434,19 +442,24 @@ class Talk
     /**
      * its an alias by getConversationByUserId.
      *
-     * @param int $senderId
+     * @param int $userId
+     * @param int $car_id
+     * @param int $offset
+     * @param int $take
      *
      * @return \LaravelVue\Talk\Messages\Message|bool
      */
-    public function getMessagesByUserId($userId, $offset = 0, $take = 20)
+    public function getMessagesByUserId($userId, $car_id, $offset = 0, $take = 20)
     {
-        return $this->getConversationsByUserId($userId, $offset, $take);
+        return $this->getConversationsByUserId($userId, $car_id, $offset, $take);
     }
 
     /**
      * its an alias by getConversationAllByUserId.
      *
-     * @param int $senderId
+     * @param int $userId
+     * @param int $offset
+     * @param int $take
      *
      * @return \LaravelVue\Talk\Messages\Message|bool
      */
