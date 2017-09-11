@@ -35,7 +35,6 @@
       "LaravelVue\\Talk\\Tests\\": "tests/"
     }
   },
-  "minimum-stability": "dev",
   "extra": {
     "laravel": {
       "providers": [
