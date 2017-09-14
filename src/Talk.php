@@ -2,19 +2,19 @@
 /**
  * Class Talk.
  *
- * @author laravelvue Bin Azhar
+ * @author LaravelVue Bin Azhar
  *
  * @version 2.0.0
  *
  * @license https://creativecommons.org/licenses/by/4.0/ (CC BY 4.0)
  */
 
-namespace laravelvue\Talk;
+namespace LaravelVue\Talk;
 
 use Illuminate\Contracts\Config\Repository;
-use laravelvue\Talk\Conversations\ConversationRepository;
-use laravelvue\Talk\Messages\MessageRepository;
-use laravelvue\Talk\Live\Broadcast;
+use LaravelVue\Talk\Conversations\ConversationRepository;
+use LaravelVue\Talk\Messages\MessageRepository;
+use LaravelVue\Talk\Live\Broadcast;
 
 class Talk
 {
@@ -28,21 +28,21 @@ class Talk
     /**
      * The ConversationRepository class instance.
      *
-     * @var \laravelvue\Talk\Conversations\ConversationRepository
+     * @var \LaravelVue\Talk\Conversations\ConversationRepository
      */
     protected $conversation;
 
     /**
      * The MessageRepository class instance.
      *
-     * @var \laravelvue\Talk\Messages\MessageRepository
+     * @var \LaravelVue\Talk\Messages\MessageRepository
      */
     protected $message;
 
     /**
      * Broadcast class instance.
      *
-     * @var \laravelvue\Talk\Live\Broadcast
+     * @var \LaravelVue\Talk\Live\Broadcast
      */
     protected $broadcast;
 
@@ -56,8 +56,8 @@ class Talk
     /**
      * Initialize and instantiate conversation and message repositories.
      *
-     * @param \laravelvue\Talk\Conversations\ConversationRepository $conversation
-     * @param \laravelvue\Talk\Messages\MessageRepository           $message
+     * @param \LaravelVue\Talk\Conversations\ConversationRepository $conversation
+     * @param \LaravelVue\Talk\Messages\MessageRepository           $message
      */
     public function __construct(Repository $config, Broadcast $broadcast, ConversationRepository $conversation, MessageRepository $message)
     {
@@ -90,7 +90,7 @@ class Talk
      * @param int    $conversationId
      * @param string $message
      *
-     * @return \laravelvue\Talk\Messages\Message
+     * @return \LaravelVue\Talk\Messages\Message
      */
     protected function makeMessage($conversationId, $message, $message_html, $message_type)
     {
@@ -185,7 +185,7 @@ class Talk
      * instant users information, you may use it
      *
      * @param   int $id
-     * @return  \laravelvue\Talk\Talk|bool
+     * @return  \LaravelVue\Talk\Talk|bool
      * */
     public function user($id = null)
     {
@@ -237,7 +237,7 @@ class Talk
      * @param int    $conversationId
      * @param string $message
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function sendMessage($conversatonId, $message, $message_html, $message_type)
     {
@@ -258,7 +258,7 @@ class Talk
      * @param int    $receiverId
      * @param string $message
      *
-     * @return \laravelvue\Talk\Messages\Message
+     * @return \LaravelVue\Talk\Messages\Message
      */
     public function sendMessageByUserId($receiverId, $message, $message_html, $message_type, $booking_id = null, $car_id = null)
     {
@@ -333,7 +333,7 @@ class Talk
      * @param int $offset         = 0
      * @param int $take           = 20
      *
-     * @return \laravelvue\Talk\Messages\Message
+     * @return \LaravelVue\Talk\Messages\Message
      */
     public function getConversationsById($conversationId, $offset = 0, $take = 20)
     {
@@ -349,7 +349,7 @@ class Talk
      * @param int $offset         = 0
      * @param int $take           = 20
      *
-     * @return \laravelvue\Talk\Messages\Message
+     * @return \LaravelVue\Talk\Messages\Message
      */
     public function getConversationsAllById($conversationId, $offset = 0, $take = 20)
     {
@@ -365,7 +365,7 @@ class Talk
      * @param int $offset   = 0
      * @param int $take     = 20
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function getConversationsByUserId($senderId, $car_id, $offset = 0, $take = 20)
     {
@@ -384,7 +384,7 @@ class Talk
      * @param int $offset   = 0
      * @param int $take     = 20
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function getConversationsAllByUserId($senderId, $offset = 0, $take = 20)
     {
@@ -401,7 +401,7 @@ class Talk
      *
      * @param int $conversationId
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function getMessages($conversationId, $offset = 0, $take = 20)
     {
@@ -413,7 +413,7 @@ class Talk
      *
      * @param int $conversationId
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function getMessagesAll($conversationId, $offset = 0, $take = 20)
     {
@@ -425,7 +425,7 @@ class Talk
      *
      * @param int $senderId
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function getMessagesByUserId($userId, $car_id,$offset = 0, $take = 20)
     {
@@ -437,7 +437,7 @@ class Talk
      *
      * @param int $senderId
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function getMessagesAllByUserId($userId, $offset = 0, $take = 20)
     {
@@ -449,7 +449,7 @@ class Talk
      *
      * @param int $messageId
      *
-     * @return \laravelvue\Talk\Messages\Message|bool
+     * @return \LaravelVue\Talk\Messages\Message|bool
      */
     public function readMessage($messageId = null)
     {
