@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Facades;
+namespace LaravelVue\Talk\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

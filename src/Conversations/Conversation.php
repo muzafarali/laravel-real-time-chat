@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Conversations;
+namespace LaravelVue\Talk\Conversations;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +23,7 @@ class Conversation extends Model
      * */
     public function messages()
     {
-        return $this->hasMany('laravelvue\Talk\Messages\Message', 'conversation_id')
+        return $this->hasMany('LaravelVue\Talk\Messages\Message', 'conversation_id')
             ->with('sender');
     }
 

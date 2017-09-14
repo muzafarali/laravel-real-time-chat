@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Conversations;
+namespace LaravelVue\Talk\Conversations;
 
 use SebastianBerc\Repositories\Repository;
 
@@ -9,7 +9,7 @@ class ConversationRepository extends Repository
     /*
      * this method is default method for repository package
      *
-     * @return  \laravelvue\Talk\Conersations\Conversation
+     * @return  \LaravelVue\Talk\Conersations\Conversation
      * */
     public function takeModel()
     {

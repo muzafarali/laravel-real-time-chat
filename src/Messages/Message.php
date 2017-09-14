@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Messages;
+namespace LaravelVue\Talk\Messages;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,7 +40,7 @@ class Message extends Model
      * */
     public function conversation()
     {
-        return $this->belongsTo('laravelvue\Talk\Conversations\Conversation');
+        return $this->belongsTo('LaravelVue\Talk\Conversations\Conversation');
     }
 
     /*

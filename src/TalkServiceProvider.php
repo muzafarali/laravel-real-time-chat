@@ -1,13 +1,13 @@
 <?php
 
-namespace laravelvue\Talk;
+namespace LaravelVue\Talk;
 
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
-use laravelvue\Talk\Conversations\ConversationRepository;
-use laravelvue\Talk\Messages\MessageRepository;
+use LaravelVue\Talk\Conversations\ConversationRepository;
+use LaravelVue\Talk\Messages\MessageRepository;
 
 class TalkServiceProvider extends ServiceProvider
 {

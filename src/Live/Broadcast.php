@@ -1,10 +1,10 @@
 <?php
 
-namespace laravelvue\Talk\Live;
+namespace LaravelVue\Talk\Live;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Contracts\Config\Repository;
-use laravelvue\Talk\Messages\Message;
+use LaravelVue\Talk\Messages\Message;
 use Pusher;
 
 class Broadcast
@@ -78,7 +78,7 @@ class Broadcast
     /**
      * Dispatch the job to the queue.
      *
-     * @param \laravelvue\Talk\Messages\Message $message
+     * @param \LaravelVue\Talk\Messages\Message $message
      */
     public function transmission(Message $message)
     {

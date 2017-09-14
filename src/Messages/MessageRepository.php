@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Messages;
+namespace LaravelVue\Talk\Messages;
 
 use SebastianBerc\Repositories\Repository;
 

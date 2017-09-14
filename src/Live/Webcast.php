@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Live;
+namespace LaravelVue\Talk\Live;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -36,7 +36,7 @@ class Webcast implements ShouldQueue
     /*
      * Execute the job and broadcast to the pusher channels
      *
-     * @param \laravelvue\Talk\Live\Broadcast $broadcast
+     * @param \LaravelVue\Talk\Live\Broadcast $broadcast
      * @return void
      */
     public function handle(Broadcast $broadcast)
