@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelVue\Talk;
+namespace laravelvue\Talk;
 
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
-use LaravelVue\Talk\Conversations\ConversationRepository;
-use LaravelVue\Talk\Messages\MessageRepository;
+use laravelvue\Talk\Conversations\ConversationRepository;
+use laravelvue\Talk\Messages\MessageRepository;
 
 class TalkServiceProvider extends ServiceProvider
 {
@@ -33,7 +33,7 @@ class TalkServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
-        $source = realpath( __DIR__ . '/../config/talk.php' );
+        $source = realpath(__DIR__.'/../config/talk.php');
         // Check if the application is a Laravel OR Lumen instance to properly merge the configuration file.
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('talk.php')]);

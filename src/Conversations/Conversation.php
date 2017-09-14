@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelVue\Talk\Conversations;
+namespace laravelvue\Talk\Conversations;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +23,7 @@ class Conversation extends Model
      * */
     public function messages()
     {
-        return $this->hasMany('LaravelVue\Talk\Messages\Message', 'conversation_id')
+        return $this->hasMany('laravelvue\Talk\Messages\Message', 'conversation_id')
             ->with('sender');
     }
 
@@ -48,10 +48,11 @@ class Conversation extends Model
     }
     
     /*
-  * make a relation between second user from conversation
-  *
-  * return collection
-  * */
+    * make a relation between second user from conversation
+    *
+    * return collection
+    * 
+    */
     public function car()
     {
         return $this->belongsTo('App\Models\Car',  'car_id');

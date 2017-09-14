@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelVue\Talk\Conversations;
+namespace laravelvue\Talk\Conversations;
 
 use SebastianBerc\Repositories\Repository;
 
@@ -9,7 +9,7 @@ class ConversationRepository extends Repository
     /*
      * this method is default method for repository package
      *
-     * @return  \LaravelVue\Talk\Conersations\Conversation
+     * @return  \laravelvue\Talk\Conersations\Conversation
      * */
     public function takeModel()
     {
@@ -37,7 +37,6 @@ class ConversationRepository extends Repository
      *
      * @param   int $user1
      * @param   int $user2
-     * @param   int $car_id
      * @return  int|bool
      * */
     public function isExistsAmongTwoUsers($user1, $user2, $car_id)
@@ -57,7 +56,6 @@ class ConversationRepository extends Repository
      *
      * @param   int $conversationId
      * @param   int $userId
-     * @param   int $car_id
      * @return  bool
      * */
     public function isUserExists($conversationId, $userId, $car_id=null)
@@ -119,6 +117,7 @@ class ConversationRepository extends Repository
         return collect($threads);
     }
     
+    
     /*
      * retrieve all message thread without soft deleted message with latest one message and
      * sender and receiver user model
@@ -167,14 +166,15 @@ class ConversationRepository extends Repository
         return collect($threads);
     }
     
+
     /*
- * retrieve all message thread with latest one message and sender and receiver user model
- *
- * @param   int $user
- * @param   int $offset
- * @param   int $take
- * @return  collection
- * */
+     * retrieve all message thread with latest one message and sender and receiver user model
+     *
+     * @param   int $user
+     * @param   int $offset
+     * @param   int $take
+     * @return  collection
+     * */
     public function threadsAll($user, $offset, $take)
     {
         $msgThread = Conversation::with(['messages' => function ($q) use ($user) {
@@ -197,7 +197,7 @@ class ConversationRepository extends Repository
         
         return collect($threads);
     }
-    
+
     /*
      * get all conversations by given conversation id
      *
@@ -209,7 +209,6 @@ class ConversationRepository extends Repository
      * */
     public function getMessagesById($conversationId, $userId, $offset, $take)
     {
-        
         return Conversation::whereHas('messages', function ($query) use ($userId, $offset, $take) {
             $query->where(function ($qr) use ($userId) {
                 $qr->where('user_id', '=', $userId)
@@ -245,4 +244,5 @@ class ConversationRepository extends Repository
     {
         return Conversation::class;
     }
+
 }

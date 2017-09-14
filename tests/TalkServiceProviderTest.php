@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Tests;
+namespace laravelvue\talk\tests;
 
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 use laravelvue\Talk\Talk;

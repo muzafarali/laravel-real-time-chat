@@ -1,6 +1,6 @@
 <?php
 
-namespace laravelvue\Talk\Tests\Facades;
+namespace laravelvue\talk\tests\Facades;
 
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use laravelvue\Talk\Tests\TestCase;

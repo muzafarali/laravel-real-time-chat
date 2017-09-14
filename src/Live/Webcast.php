@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelVue\Talk\Live;
+namespace laravelvue\Talk\Live;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Webcast //implements ShouldQueue
+class Webcast implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
 
@@ -36,7 +36,7 @@ class Webcast //implements ShouldQueue
     /*
      * Execute the job and broadcast to the pusher channels
      *
-     * @param \LaravelVue\Talk\Live\Broadcast $broadcast
+     * @param \laravelvue\Talk\Live\Broadcast $broadcast
      * @return void
      */
     public function handle(Broadcast $broadcast)
@@ -46,7 +46,7 @@ class Webcast //implements ShouldQueue
 
         $channelForUser = $this->broadcast->getConfig('broadcast.app_name').'-user-'.$toUser;
         $channelForConversation = $this->broadcast->getConfig('broadcast.app_name').'-conversation-'.$this->message['conversation_id'];
-
-        $this->broadcast->pusher->trigger([sha1($channelForUser), sha1($channelForConversation)], 'talk-send-message', $this->message);
+    
+        $this->broadcast->pusher->trigger([$channelForUser, $channelForConversation], 'talk-send-message', $this->message);
     }
 }
